@@ -11,6 +11,7 @@ app.use(express.static('public'));
 app.use(cors({
     origin: '*'
 }));
+//test
 
 //our APIs
 {
@@ -55,6 +56,13 @@ app.use(cors({
     //delete item
     app.delete('/our/:Item_Name', (req, res) => {
         Our.findOneAndDelete({ 'Item_Name': req.params.Item_Name })
+            .then(user => res.send(user))
+            .catch((err) => console.log(err))
+    })
+
+    //delete item
+    app.delete('/our', (req, res) => {
+        Our.deleteMany({})
             .then(user => res.send(user))
             .catch((err) => console.log(err))
     })
