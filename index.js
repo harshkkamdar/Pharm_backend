@@ -23,7 +23,7 @@ app.use(cors({
     });
 
     //Add an item
-    app.post('/our', (req, res) => {
+    app.post('/ourOne', (req, res) => {
         (new Our({
             'SrNo': req.body.SrNo,
             'Item_Name': req.body.Item_Name,
@@ -63,6 +63,13 @@ app.use(cors({
     //delete item
     app.delete('/our', (req, res) => {
         Our.deleteMany({})
+            .then(user => res.send(user))
+            .catch((err) => console.log(err))
+    })
+
+    //add multiple item
+    app.post('/ourMultiple', (req, res) => {
+        Our.insertMany(req.body)
             .then(user => res.send(user))
             .catch((err) => console.log(err))
     })
