@@ -25,7 +25,7 @@ app.use(cors({
     //Add an item
     app.post('/ourOne', (req, res) => {
         (new Our({
-            'mankind_match': {}
+            'mankind_match': []
         }))
             .save()
             .then(user => res.send(user))

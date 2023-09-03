@@ -34,7 +34,7 @@ const OurSchema = new mongoose.Schema({
         trim: true,
     },
     mankind_match:{
-        type: Object,
+        type: Array,
         trim: true,
     }
 });
