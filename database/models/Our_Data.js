@@ -33,7 +33,7 @@ const OurSchema = new mongoose.Schema({
         type: String,
         trim: true,
     },
-    mankind:{
+    mankind_match:{
         type: Object,
         trim: true,
     }
