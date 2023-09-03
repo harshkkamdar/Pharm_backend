@@ -25,14 +25,6 @@ app.use(cors({
     //Add an item
     app.post('/ourOne', (req, res) => {
         (new Our({
-            'SrNo': req.body.SrNo,
-            'Item_Name': req.body.Item_Name,
-            'Drug_Name': req.body.Drug_Name,
-            'Manufacturer': req.body.Manufacturer,
-            'UOM': req.body.UOM,
-            'Unit_Price': req.body.Unit_Price,
-            'MRP': req.body.MRP,
-            'Order_Qty': req.body.Order_Qty,
             'mankind_match': req.body.mankind_match
         }))
             .save()
