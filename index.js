@@ -33,6 +33,7 @@ app.use(cors({
             'Unit_Price': req.body.Unit_Price,
             'MRP': req.body.MRP,
             'Order_Qty': req.body.Order_Qty,
+            'mankind_matches': req.body.mankind_matches
         }))
             .save()
             .then(user => res.send(user))
@@ -40,8 +41,8 @@ app.use(cors({
     });
 
     //Get 1 item
-    app.get('/our/:item_name', (req, res) => {
-        Our.find({ item_name: req.params.name })
+    app.get('/our/:Item_Name', (req, res) => {
+        Our.find({ Item_Name: req.params.Item_Name })
             .then(user => res.send(user))
             .catch((err) => console.log(err))
     });

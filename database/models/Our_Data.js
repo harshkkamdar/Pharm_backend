@@ -32,6 +32,10 @@ const OurSchema = new mongoose.Schema({
     Order_Qty: {
         type: String,
         trim: true,
+    },
+    mankind_matches:{
+        type: JSON,
+        trim: true,
     }
 });
 
