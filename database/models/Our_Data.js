@@ -34,7 +34,7 @@ const OurSchema = new mongoose.Schema({
         trim: true,
     },
     mankind:{
-        type: JSON,
+        type: Array,
         trim: true,
     }
 });
