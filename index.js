@@ -33,7 +33,7 @@ app.use(cors({
             'Unit_Price': req.body.Unit_Price,
             'MRP': req.body.MRP,
             'Order_Qty': req.body.Order_Qty,
-            'mankind_matches': req.body.mankind_matches
+            'mankind': req.body.mankind
         }))
             .save()
             .then(user => res.send(user))
