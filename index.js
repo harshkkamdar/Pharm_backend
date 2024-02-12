@@ -67,6 +67,60 @@ app.use(cors({
             .catch((err) => console.log(err))
     })
 }
+//Mankind Apis
+{
+    //Get All items
+    app.get('/mankind', (req, res) => {
+        Mankind.find({})
+            .then(user => res.send(user))
+            .catch((err) => console.log(err))
+    });
+
+    //Add an item
+    app.post('/mankindOne', (req, res) => {
+        (new Mankind({
+            'mankind_match': []
+        }))
+            .save()
+            .then(user => res.send(user))
+            .catch((err) => console.log(err))
+    });
+
+    //Get 1 item
+    app.get('/mankind/:Item_Name', (req, res) => {
+        Mankind.find({ Item_Name: req.params.Item_Name })
+            .then(user => res.send(user))
+            .catch((err) => console.log(err))
+    });
+
+    //Updating mankind
+    app.patch('/mankind/:Item_Name', (req, res) => {
+        Mankind.findOneAndUpdate({ 'Item_Name': req.params.Item_Name }, { $set: req.body })
+            .then(user => res.send(user))
+            .catch((err) => console.log(err))
+    });
+
+    //delete item
+    app.delete('/mankind/:Item_Name', (req, res) => {
+        Mankind.findOneAndDelete({ 'Item_Name': req.params.Item_Name })
+            .then(user => res.send(user))
+            .catch((err) => console.log(err))
+    })
+
+    //delete item
+    app.delete('/mankind', (req, res) => {
+        Mankind.deleteMany({})
+            .then(user => res.send(user))
+            .catch((err) => console.log(err))
+    })
+
+    //add multiple item
+    app.post('/mankindMultiple', (req, res) => {
+        Mankind.insertMany(req.body)
+            .then(user => res.send(user))
+            .catch((err) => console.log(err))
+    })
+}
 
 app.listen(process.env.port || 3000, function () {
     console.log('now listening for requests');
